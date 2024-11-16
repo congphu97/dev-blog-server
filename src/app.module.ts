@@ -7,6 +7,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { BlogsResolver } from './blogs/blogs.resolver';
 import { FirebaseModule } from './firebase/firebase.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -16,8 +17,12 @@ import { FirebaseModule } from './firebase/firebase.module';
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql', // Automatically generate the schema file
     }),
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+    })
+
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
