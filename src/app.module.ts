@@ -18,7 +18,8 @@ import { ConfigModule } from '@nestjs/config';
       autoSchemaFile: 'schema.gql', // Automatically generate the schema file
     }),
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      isGlobal: true, // This makes the ConfigModule available globally
+      envFilePath: '.env', // Specify the path to your .env file
     })
 
   ],
