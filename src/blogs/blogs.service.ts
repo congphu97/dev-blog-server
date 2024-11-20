@@ -35,7 +35,7 @@ export class BlogsService {
                 createdAt: data.createdAt ? data.createdAt.toDate() : new Date(), // Convert to Date
             } as Blog;
         });
-
+        console.log({blogs})
         return blogs;
     }
 
