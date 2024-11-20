@@ -8,8 +8,6 @@ async function bootstrap() {
   app.enableCors({
     // origin: 'https://dev-blog-server-rgnj.onrender.com', // Allow requests from this origin
     origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type,Authorization', // Allow specific headers
     credentials: true, // Optional, depending on your setup
   });
 
