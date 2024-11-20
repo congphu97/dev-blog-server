@@ -8,7 +8,9 @@ async function bootstrap() {
   app.enableCors({
     // origin: 'https://dev-blog-server-rgnj.onrender.com', // Allow requests from this origin
     origin: '*',
-    credentials: true, // Optional, depending on your setup
+    methods: 'GET,POST',
+    allowedHeaders: 'Content-Type, x-apollo-operation-name, apollo-require-preflight, Authorization',
+    credentials: true,  // Allow cookies (if needed for authentication)
   });
 
   await app.listen(port);
