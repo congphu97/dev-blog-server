@@ -2,12 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule,  { cors: true });
 
   const port = process.env.PORT || 3000; // Use Render's PORT or default to 3000
   app.enableCors({
-    origin: 'https://dev-blog-server-rgnj.onrender.com', // Allow requests from this origin
+    // origin: 'https://dev-blog-server-rgnj.onrender.com', // Allow requests from this origin
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization', // Allow specific headers
     credentials: true, // Optional, depending on your setup
   });
 
