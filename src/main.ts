@@ -5,6 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule,  { cors: true });
 
   const port = process.env.PORT || 3000; // Use Render's PORT or default to 3000
+
   app.enableCors({
     // origin: 'https://dev-blog-server-rgnj.onrender.com', // Allow requests from this origin
     origin: '*',

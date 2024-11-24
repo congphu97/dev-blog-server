@@ -8,14 +8,19 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { BlogsResolver } from './blogs/blogs.resolver';
 import { FirebaseModule } from './firebase/firebase.module';
 import { ConfigModule } from '@nestjs/config';
+import { join } from 'path';
 
 @Module({
   imports: [
     UsersModule,
     BlogsModule,
-    GraphQLModule.forRoot<ApolloDriverConfig>({
+    GraphQLModule.forRoot({
       driver: ApolloDriver,
-      autoSchemaFile: 'schema.gql', // Automatically generate the schema file
+      autoSchemaFile: 'schema.gql', // Automatically generate the schema file,
+      cors: {
+        origin: '*', // Replace with the frontend URL
+        credentials: true, // Allow cookies to be sent if necessary
+      },
     }),
     ConfigModule.forRoot({
       isGlobal: true, // This makes the ConfigModule available globally
