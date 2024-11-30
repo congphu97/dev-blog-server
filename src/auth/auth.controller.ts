@@ -56,7 +56,7 @@ export class AuthController {
     const accessToken = user.accessToken;
     console.log(user)
     // Optionally, you can store the access token in a session or JWT
-    res.redirect(`http://localhost:3001/auth/redirect?access_token=${accessToken}`);
+    res.redirect(`https://devblogvn.netlify.app/auth/redirect?access_token=${accessToken}`);
   }
 
   @Get('github/validate')
