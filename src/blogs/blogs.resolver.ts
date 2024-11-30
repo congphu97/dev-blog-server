@@ -1,5 +1,4 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import { FirebaseService } from 'src/firebase/firebase.service';
 import { Blog, CreateBlogInput, UpdateBlogInput } from './blogs.dto';
 import { BlogsService } from './blogs.service';
 
