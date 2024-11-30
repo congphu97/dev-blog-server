@@ -50,7 +50,7 @@ export class AuthController {
   // This route will handle the GitHub callback
   @Get('github/callback')
   @UseGuards(AuthGuard('github'))
-  githubLoginCallback(@Req() req: Request, @Res() res: Response) {
+  githubLoginCallback(@Req() req: Request, @Res() res: any) {
     // The user profile and token are available in req.user
     const user: any = req.user;
     const accessToken = user.accessToken;
@@ -60,7 +60,7 @@ export class AuthController {
   }
 
   @Get('github/validate')
-  async validateGitHubToken(@Req() req: Request, @Res() res: Response) {
+  async validateGitHubToken(@Req() req: Request, @Res() res: any) {
     const token = req.headers['authorization']?.split(' ')[1]; // Extract the token from the Authorization header
 
     if (!token) {
